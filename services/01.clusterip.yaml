@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: labels
+  labels:
+    name: saikiran
+    duty: study
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80
+          name: saikiran-nginx
+---
+apiVersion: v1
+kind: service
+metadata: nginx-service
+spec:
+  selector:
+    name: saikiran
+    duty: study
+  ports:
+    - port: 80
+      targetport: saikiran-nginx
+      protocol: TCP
+     
+    
