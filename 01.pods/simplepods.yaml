@@ -1,4 +1,4 @@
-apiversion: v1
+apiVersion: v1
 kind: pod
 metadata:
   name: simple-pod
@@ -8,4 +8,4 @@ spec:
     - name: nginx
       image: nginx:1.14.2
       ports:
-        - containerport: 80
+        - containerPort: 80
