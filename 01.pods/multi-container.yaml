@@ -10,6 +10,6 @@ spec:
       - containerPort: 80
   - name: sidecar
     image: almalinux:8
-    commad: ["sleep", "200"]
+    command: ["sleep", "200"]
 
 
