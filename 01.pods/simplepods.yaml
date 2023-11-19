@@ -1,0 +1,11 @@
+apiversion: v1
+kind: pod
+metadata:
+  name: simple-pod
+  Namespace: roboshop
+specs:
+  containers:
+    - name: nginx
+      image: nginx:1.14.2
+      ports:
+        - containerport: 80
