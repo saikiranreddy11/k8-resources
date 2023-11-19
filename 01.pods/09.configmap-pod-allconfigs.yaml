@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: refering_all_configmap_data_at_a_time
+  name: refering-all-configmap-data-at-a-time
 spec:
   containers:
     - name: nginx
