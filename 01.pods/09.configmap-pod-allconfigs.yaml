@@ -4,7 +4,7 @@ metadata:
   name: config-pod
 spec:
   containers:
-    - name: env
+    - name: refering_all_configmap_data_at_a_time
       image: nginx
       envFrom:
         configMapKeyRef: 
