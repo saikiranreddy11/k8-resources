@@ -15,7 +15,8 @@ spec:
 ---
 apiVersion: v1
 kind: service
-metadata: nginx-service
+metadata:
+  name: nginx-service
 spec:
   selector:
     name: saikiran
