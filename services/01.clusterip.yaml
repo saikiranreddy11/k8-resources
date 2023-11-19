@@ -23,7 +23,8 @@ spec:
     duty: study
   ports:
     - port: 80
-      targetport: saikiran-nginx
+      targetPort: saikiran-nginx
       protocol: TCP
+      name: name-of-service-port
      
     
