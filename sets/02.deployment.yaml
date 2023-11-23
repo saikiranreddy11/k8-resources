@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploymnt
+  labels:
+    app: roboshop
+    tier: frontend
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      component: nginx-component
+      purpose: practice
+      environment: dev
+  template:
+    metadata:
+      labels:
+        component: nginx-component
+        purpose: practice
+        environment: dev
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
