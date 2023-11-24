@@ -10,7 +10,7 @@ spec:
     - name: shared-volume
       mountPath: /var/log/
   - name: fluentd-sidecar
-    image: fluent/fluentd:v1.14.1
+    image: docker.elastic.co/beats/filebeat:7.5.0
     volumeMounts:
     - name: shared-volume
       mountPath: /var/log
