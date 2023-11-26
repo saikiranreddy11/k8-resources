@@ -5,7 +5,7 @@ metadata:
 provisioner: efs.csi.aws.com
 parameters:
   provisioningMode: efs-ap
-  fileSystemId: fs-092d5cbc6e298fe0d
+  fileSystemId: fs-040c199214fb521fb
   directoryPerms: "700"
   gidRangeStart: "1000" # optional
   gidRangeEnd: "2000" # optional
@@ -55,4 +55,3 @@ spec:
       - name: nginx-html
         persistentVolumeClaim: # this is the PVC
           claimName: efs-dynamic-pvc
-  
