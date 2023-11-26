@@ -1,0 +1,60 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ebs-dynamic-storage
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  type: gp2
+reclaimPolicy: Retain
+allowVolumeExpansion: true
+mountOptions:
+  - debug
+volumeBindingMode: Immediate
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-ebs-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: "ebs-dynamic-storage"
+  resources:
+    requests:
+      storage: 5Gi
+--- 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  labels:
+    project: roboshop
+    tier: web-tier
+    component: web
+spec:
+  # modify replicas according to your case
+  replicas: 10
+  selector:
+    matchLabels:
+      project: roboshop
+      tier: web-tier
+      component: web
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        tier: web-tier
+        component: web
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        volumeMounts: 
+          - name: my-volume
+            mountPath: /usr/share/nginx/html 
+            # subPath: config # this is the key of the configmap
+            # readOnly: true
+      volumes:
+      - name: my-volume
+        persistentVolumeClaim:
+          claimName: my-ebs-pvc
