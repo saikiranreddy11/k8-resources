@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: nginx # has to match .spec.template.metadata.labels
-  serviceName: "nginx"
+  serviceName: "nginx-stateful"
   replicas: 3 # by default is 1
   minReadySeconds: 10 # by default is 0
   template:
